@@ -6,7 +6,7 @@ package codesoftware.ora;
 public class SQLString {
 
     public String sqluser() {
-        return "ML";
+        return "U";
     }
 
     public String sqlpassword() {

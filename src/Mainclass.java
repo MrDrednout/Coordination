@@ -9,7 +9,7 @@ public class Mainclass extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("windows/ruler/fxml/Ruler.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Coordination 0.1b");
         primaryStage.setScene(new Scene(root, 500, 200));
         primaryStage.setResizable(false);
         primaryStage.show();
