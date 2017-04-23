@@ -1,6 +1,7 @@
 package codesoftware.ora.connect;
 
-import codesoftware.ora.SQLString;
+import codesoftware.ora.connect.SQLString;
+import windows.ruler.controller.Ruler;
 
 import java.sql.*;
 import java.util.Locale;
@@ -13,7 +14,7 @@ public class SQLConnect {
     public static Connection c = null;
     SQLString s = new SQLString();
 
-    public void SQLOpenConnect() throws SQLException {
+    public String SQLOpenConnect() throws SQLException {
         Locale.setDefault(Locale.ENGLISH);
         SQLString connectString = new SQLString();
 
@@ -21,29 +22,32 @@ public class SQLConnect {
         String password = connectString.sqlpassword();//Пароль пользователя
         String url = connectString.sqlstring();//URL адрес
         String driver = "oracle.jdbc.driver.OracleDriver"; //Имя драйвера
+        String text = null;
 
         try {
             Class.forName(driver);//Регистрируем драйвер
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
         try {
             c = DriverManager.getConnection(url, user, password);//Установка соединения с БД
-            System.out.println("Connect open");
+            text = "Соединение с банком открыто";
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return text;
     }
 
-    public void SQLCloseConnect() {
+    public String SQLCloseConnect() {
+        String text = null;
         try {
             if (c != null)
                 c.close();
-            System.out.println("Connect close");
+                text = "Соединение с банком закрыто";
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return text;
     }
 
     public ResultSet SQLQuery(String query) throws SQLException {

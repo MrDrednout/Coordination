@@ -1,4 +1,4 @@
-package codesoftware.ora;
+package codesoftware.ora.connect;
 
 /**
  * Created by coole on 22.04.2017.
@@ -6,14 +6,14 @@ package codesoftware.ora;
 public class SQLString {
 
     public String sqluser() {
-        return "U";
+        return "U_COLLECTOR";
     }
 
     public String sqlpassword() {
-        return "Derdiedas1";
+        return "";
     }
 
     public String sqlstring() {
-        return "jdbc:oracle:thin:@LENOVOX230SERV:1521/XE";
+        return "jdbc:oracle:thin:@";
     }
 }
